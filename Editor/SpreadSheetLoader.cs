@@ -8,7 +8,7 @@ using Google.Apis.Sheets.v4.Data;
 using Google.Apis.Util.Store;
 using UnityEngine;
 
-namespace GoogleSheetsConfig.Editor {
+namespace Yogi.GoogleSheetsConfig.Editor {
     public class SpreadSheetLoader {
          private static readonly string[] Scopes = {SheetsService.Scope.SpreadsheetsReadonly};
         private static string ApplicationName = "Google Sheets API .NET";

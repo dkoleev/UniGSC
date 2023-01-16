@@ -1,3 +1,14 @@
 {
-	"name": "Yogi.GoogleSheetsConfigs.Editor"
+    "name": "Yogi.GoogleSheetsConfigs.Editor",
+    "rootNamespace": "Yogi",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

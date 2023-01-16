@@ -1,0 +1,12 @@
+{
+  "name": "com.yogi.googlesheets_configs",
+  "displayName": "Google Sheets Configs",
+  "version": "0.1.0",
+  "unity": "2021.3",
+  "description": "Load and Parse data from Google Sheets in Unity",
+  "author": {
+	  "name" : "Dmitry Koleev (Yogi)",
+	  "email" : "dmitry.koleev@gmail.com",
+	  "url" : "https://twitter.com/dkoleev"
+  }
+}
