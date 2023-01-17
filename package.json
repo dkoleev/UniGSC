@@ -5,7 +5,7 @@
   "unity": "2021.3",
   "description": "Load and Parse data from Google Sheets in Unity",
   "author": {
-	  "name" : "Dmitry Koleev (Yogi)",
+	  "name" : "Dmitry Koleev",
 	  "email" : "dmitry.koleev@gmail.com",
 	  "url" : "https://twitter.com/dkoleev"
   }

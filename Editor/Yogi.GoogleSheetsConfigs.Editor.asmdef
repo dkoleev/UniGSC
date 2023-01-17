@@ -2,7 +2,9 @@
     "name": "Yogi.GoogleSheetsConfigs.Editor",
     "rootNamespace": "Yogi",
     "references": [],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
