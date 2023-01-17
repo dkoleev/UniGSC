@@ -70,8 +70,8 @@ After the key has been created, click **SHOW KEY** and copy key to clipboard.
     
     ![image](https://user-images.githubusercontent.com/54948242/212978995-2a787755-bf6e-446a-95ce-9b9c7854c3b6.png)
 
-     - `Name` - used just for visual sorting
-     - `Spread Sheet` -spreadsheet id 
+     - `Name` - You can give it any name you want. Doesn't affect anything.
+     - `Spread Sheet` -spreadsheet id.
       
      ![image](https://user-images.githubusercontent.com/54948242/212985253-cb37a9a8-0e61-4801-98f6-2206774f86a3.png)
         
