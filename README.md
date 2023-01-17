@@ -71,18 +71,18 @@ After the key has been created, click **SHOW KEY** and copy key to clipboard.
     ![image](https://user-images.githubusercontent.com/54948242/212978995-2a787755-bf6e-446a-95ce-9b9c7854c3b6.png)
 
      - `Name` - You can give it any name you want. Doesn't affect anything.
-     - `Spread Sheet` -spreadsheet id.
+     - `Spread Sheet` - Spreadsheet id.
       
      ![image](https://user-images.githubusercontent.com/54948242/212985253-cb37a9a8-0e61-4801-98f6-2206774f86a3.png)
         
      - Sheets
-       - `Config Name` - the path where generated config .json file will be saved.
-       - `Sheet Id` - the id of the sheet used to load the data.
+       - `Config Name` - The path where generated config .json file will be saved.
+       - `Sheet Id` - The id of the sheet used to load the data.
        
        ![image](https://user-images.githubusercontent.com/54948242/212985300-f1d5c8e0-32ba-4967-a671-df4461604394.png)
        
-       - `Range` - range of sheet used for loading. Examples: 'A1:E1000', '2:1000'. 'Leave empty to loading the entire sheet'.
-       - `Parser` - the way how to parse data loaded from sheet. Use 'default' parser or create your own.
+       - `Range` - Range of sheet used for loading. Examples: 'A1:E1000', '2:1000'. **Leave empty to loading the entire sheet**.
+       - `Parser` - The way how to parse data loaded from sheet. Use 'default' parser or create your own.
      - Click `Pull Configs from Google Drive` to load google sheets configs into local json files.
       
    ### Example
