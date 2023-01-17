@@ -98,7 +98,7 @@ After the key has been created, click **SHOW KEY** and copy key to clipboard.
   
   ![image](https://user-images.githubusercontent.com/54948242/212983611-5182d516-5a29-44f6-a25b-becc6b6bde8f.png)
 
-How you can see - With the 'default' parser, the first column is used as the key in json config.
+How you can see - with the 'default' parser, the first column is used as the key in json config.
 
 **You can write any unique parser for each table to generate json files of the desired format**
 
