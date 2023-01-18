@@ -11,8 +11,10 @@ using Google.Apis.Sheets.v4;
 using Google.Apis.Sheets.v4.Data;
 using Google.Apis.Util.Store;
 using UnityEditor;
+using UnityEditor.Compilation;
 using UnityEngine;
 using Yogi.GoogleSheetsConfig.Editor.Parsers;
+using Assembly = System.Reflection.Assembly;
 
 namespace Yogi.GoogleSheetsConfig.Editor {
     public enum AuthenticationType {
@@ -298,13 +300,18 @@ namespace Yogi.GoogleSheetsConfig.Editor {
         }
 
         private ISpreadsheetParser GetSpreadsheetParser(string configType) {
-            var targetType = Assembly.GetExecutingAssembly()
-                .GetTypes().FirstOrDefault(x =>
-                    typeof(ISpreadsheetParser).IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract
-                    && x.GetCustomAttribute<ParserTypeAttribute>()?.ParserType == configType);
+            var assemblyCollection = System.AppDomain.CurrentDomain.GetAssemblies();
 
-            if (targetType != null)
-                return Activator.CreateInstance(targetType) as ISpreadsheetParser;
+            foreach (var assembly in assemblyCollection) {
+                var targetType = assembly
+                    .GetTypes().FirstOrDefault(x =>
+                        typeof(ISpreadsheetParser).IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract
+                        && x.GetCustomAttribute<ParserTypeAttribute>()?.ParserType == configType);
+
+                if (targetType != null) {
+                    return Activator.CreateInstance(targetType) as ISpreadsheetParser;
+                }
+            }
 
             return null;
         }
