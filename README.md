@@ -14,9 +14,13 @@ Google Sheets Configs for Unity game engine.
 
 ## Installation
 Use [UPM](https://docs.unity3d.com/Manual/upm-ui.html) to install the package via the following git URL: 
+
 ```
 https://github.com/dkoleev/GoogleSheetsConfig.git
 ```
+
+![](https://gyazo.com/8c8fc97345fc64f53d62814cce571974.gif)
+
 
 ## Setup
 ### Creating Credentials in Google API Console
