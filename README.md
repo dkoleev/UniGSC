@@ -32,7 +32,7 @@ The json file structure is generated using custom parsers, which allows you to g
 Use [UPM](https://docs.unity3d.com/Manual/upm-ui.html) to install the package via the following git URL: 
 
 ```
-https://github.com/dkoleev/GoogleSheetsConfig.git
+https://github.com/dkoleev/UniGHC.git
 ```
 
 ![](https://gyazo.com/8c8fc97345fc64f53d62814cce571974.gif)
