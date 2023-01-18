@@ -11,12 +11,10 @@ using Google.Apis.Sheets.v4;
 using Google.Apis.Sheets.v4.Data;
 using Google.Apis.Util.Store;
 using UnityEditor;
-using UnityEditor.Compilation;
 using UnityEngine;
-using Yogi.GoogleSheetsConfig.Editor.Parsers;
-using Assembly = System.Reflection.Assembly;
+using Yogi.UniGSC.Editor.Parsers;
 
-namespace Yogi.GoogleSheetsConfig.Editor {
+namespace Yogi.UniGSC.Editor {
     public enum AuthenticationType {
         None,
         OAuth,

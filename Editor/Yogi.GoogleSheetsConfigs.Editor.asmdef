@@ -1,5 +1,5 @@
 {
-    "name": "Yogi.GoogleSheetsConfigs.Editor",
+    "name": "Yogi.UniGSC.Editor",
     "rootNamespace": "Yogi",
     "references": [],
     "includePlatforms": [

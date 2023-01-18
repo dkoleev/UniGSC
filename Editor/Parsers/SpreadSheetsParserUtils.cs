@@ -1,5 +1,5 @@
 ﻿using System.Globalization;
-namespace Yogi.GoogleSheetsConfig.Editor.Parsers {
+namespace Yogi.UniGSC.Editor.Parsers {
     public static class SpreadSheetsParserUtils {
         public static object GetParseValue(object value) {
             if (int.TryParse(value.ToString(), out var resInt)) {

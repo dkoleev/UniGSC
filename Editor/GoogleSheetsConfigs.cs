@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-
-namespace Yogi.GoogleSheetsConfig.Editor {
+namespace Yogi.UniGSC.Editor {
     [CreateAssetMenu(fileName = "Google Sheets Configs", menuName = "Yogi/Google Sheets Configs/Configs", order = 2)]
     internal class GoogleSheetsConfigs : ScriptableObject {
         [field: SerializeField] internal GoogleSheetsServiceProvider Provider { get; private set; }

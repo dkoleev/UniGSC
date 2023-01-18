@@ -5,7 +5,7 @@ using Google.Apis.Auth.OAuth2;
 using UnityEditor;
 using UnityEngine;
 
-namespace Yogi.GoogleSheetsConfig.Editor {
+namespace Yogi.UniGSC.Editor {
     [CustomEditor(typeof(GoogleSheetsServiceProvider))]
     public class GoogleSheetsServiceProviderEditor : UnityEditor.Editor {
         private SerializedProperty _clientId;

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
-
-namespace Yogi.GoogleSheetsConfig.Editor.Parsers {
+namespace Yogi.UniGSC.Editor.Parsers {
     [ParserType("default")]
     public class SpreadsheetParserDefault : ISpreadsheetParser {
         public string Parse(int sheetId, IList<IList<object>> sheetData) {

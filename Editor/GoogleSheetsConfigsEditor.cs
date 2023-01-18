@@ -1,7 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine;
-
-namespace Yogi.GoogleSheetsConfig.Editor {
+namespace Yogi.UniGSC.Editor {
     [CustomEditor(typeof(GoogleSheetsConfigs))]
     public class GoogleSheetsConfigsEditor : UnityEditor.Editor {
         public override void OnInspectorGUI() {

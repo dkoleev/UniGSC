@@ -1,6 +1,5 @@
 ﻿using System;
-
-namespace Yogi.GoogleSheetsConfig.Editor.Parsers {
+namespace Yogi.UniGSC.Editor.Parsers {
     public class ParserTypeAttribute : Attribute {
         public string ParserType { get; private set; }
 

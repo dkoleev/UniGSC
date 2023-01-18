@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
-
-namespace Yogi.GoogleSheetsConfig.Editor.Parsers {
+namespace Yogi.UniGSC.Editor.Parsers {
     public interface ISpreadsheetParser {
         string Parse(int sheetId, IList<IList<object>> sheetData);
     }
