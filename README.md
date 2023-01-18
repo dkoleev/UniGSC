@@ -230,7 +230,7 @@ namespace Editor {
 }
 ```
 
-- Add 'ParserType' attribute to 'RewardParser' class and name it for example 'reward_parser'.
+- Add `ParserType` attribute to `RewardParser` class and name it for example `reward_parser`.
 
 ```c#
 using System.Collections.Generic;
