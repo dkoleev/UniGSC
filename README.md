@@ -1,6 +1,15 @@
 Google Sheets Configs for Unity game engine.
 ===
 
+```mermaid
+flowchart LR
+id1(Google sheet) -->|parser| id2(Json) -->|data model| id3(Unity runtime)
+```
+
+This package converts data from `Google sheets` to `Json` files. 
+
+The json file structure is generated using custom parsers, which allows you to generate a json file of any structure from a Google sheet of any structure.
+
 ## Table of contents
 
 <details>
@@ -127,10 +136,56 @@ After the key has been created, click **SHOW KEY** and copy key to clipboard.
 ## Parsers
   
 > 💥 **You can write any unique parser for each table to generate json files of the desired format** 💥
+
+[Json.Net](https://www.newtonsoft.com/json) is used to parse google sheet data.
  
 ### Default parser
 
-### Create custom parser
+Default parser has id `default` and parse sheet data to the next structure
+
+```json
+{
+ "[first_column_current_row_value]" : {
+  "[first_column_first_row_value]" : "[first_column_current_row_value]",
+  "[second_column_first_row_value]" : "[second_column_second_row_value]",
+  ...
+  "[n_column_first_row_value]" : "[n_column_n_row_value]",
+ }
+}
+```
+
+<details>
+<summary>Example</summary>
+
+This sheet
+
+![image](https://user-images.githubusercontent.com/54948242/213211874-3eaa9b3d-c8d5-4777-99c9-44178a002086.png)
+
+will be parsed in next json structure
+
+```json
+{
+  "monster_0": {
+    "id": "monster_0",
+    "name": "Big Boss",
+    "damage": 10
+  },
+  "monster_1": {
+    "id": "monster_1",
+    "name": "Small Boss",
+    "damage": 20
+  }
+}
+```
+
+</details>
+
+To use default parser set field `Parser` in sheet config to `default`.
+
+![image](https://user-images.githubusercontent.com/54948242/213213224-58e192d3-845c-4d3d-8571-393f288a1e27.png)
+
+
+## Create custom parser
 
 For example - we have this Google sheet config
 
@@ -140,21 +195,33 @@ And we want parse it to this json format
 
 ```json
 {
-	"reward_0": {
-		"id": "reward_0",
-		"resources": [
-			{
-				"resource_id": "gems",
-				"amount": 10
-			},
-			{
-				"resource_id": "gold",
-				"amount": 5
-			}
-		]
-	}
+  "reward_0": {
+    "id": "reward_0",
+    "resources": [
+      {
+        "resource_id": "gems",
+        "amount": 10
+      },
+      {
+        "resource_id": "gold",
+        "amount": 5
+      }
+    ]
+  },
+  "reward_1": {
+    "id": "reward_1",
+    "resources": [
+      {
+        "resource_id": "gold",
+        "amount": 100
+      }
+    ]
+  }
 }
+...
 ```
+
+**Make next steps:**
 
 - Create new class `RewardsParser` and implement an interface `ISpreadsheetParser`.
 
@@ -172,7 +239,7 @@ namespace Editor {
 }
 ```
 
-- Add 'ParserType' attribute to 'RewardParser' class and name it for example 'reward_parser'.
+- Add `ParserType` attribute to `RewardParser` class and name it for example `reward_parser`.
 
 ```c#
 using System.Collections.Generic;
