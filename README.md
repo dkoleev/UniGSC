@@ -1,6 +1,15 @@
 Google Sheets Configs for Unity game engine.
 ===
 
+```mermaid
+flowchart LR
+id1(Google sheet) -->|parser| id2(Json) -->|data model| id3(Unity runtime)
+```
+
+This package converts data from `Google sheets` to `Json` files. 
+
+The json file structure is generated using custom parsers, which allows you to generate a json file of any structure from a Google sheet of any structure.
+
 ## Table of contents
 
 <details>
