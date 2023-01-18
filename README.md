@@ -34,7 +34,7 @@ To set up **OAuth** or **API Key** authorization, follow these steps:
 - Enable the Google Sheets API support.
 - Select the **CREATE CREDENTIALS** option and select either **API Key** or **OAuth Client ID**.
 
-### OAuth
+#### OAuth
 
 Wigh OAuth 2.0 authentication you can read and write from a public and private sheets. For more information, see [Google’s OAuth 2.0 documentation](https://developers.google.com/identity/protocols/oauth2).
 
@@ -45,7 +45,7 @@ After the credentials have been created, download the JSON file.
 ![image](https://user-images.githubusercontent.com/54948242/212972140-70c60a83-b3fa-4c71-bb9d-137564c71c4b.png)
 ![image](https://user-images.githubusercontent.com/54948242/212972417-42ed6fc2-e799-47a3-b9d6-701e14e542c1.png)
  
-### API Key
+#### API Key
 
 API keys are a simple encrypted string that can be used only for read data from public Google Sheets.
 
@@ -64,6 +64,7 @@ After the key has been created, click **SHOW KEY** and copy key to clipboard.
   - OAuth
     - Click `Load Credentials` and select credentials .json file downloaded from Google Sheets API.
     - Click `Authorize`.
+      - Unity launches your web browser and opens a Google authentication page. Log in your Google account and allow Unity access to the account. If you don't click **Authorize** Unity opens the web browser when you pull data from the Google sheet.
    - Api Key
       - Insert **Api Key** to field.
   ### Setup local configs.
@@ -71,7 +72,7 @@ After the key has been created, click **SHOW KEY** and copy key to clipboard.
       - Right Click in **Project** tab.
       - Select `Create -> Yogi -> Google Sheets Configs -> Configs`
       - Select created file.
-      - Set provider for config 
+      - Assigen the [provider](#connect-unity-project-to-google-sheets-service) created in the previous step.
       
       ![image](https://user-images.githubusercontent.com/54948242/212977810-ce313302-a63f-4e1c-9a3f-ba50612cf259.png)
       
@@ -119,8 +120,115 @@ After the key has been created, click **SHOW KEY** and copy key to clipboard.
 ## Parsers
   
  **You can write any unique parser for each table to generate json files of the desired format**
-      
+ 
+### Default parser
 
+### Create custom parser
+
+For example - we have this Google sheet config
+
+![image](https://user-images.githubusercontent.com/54948242/213154537-90b554c5-fd6f-412f-81c3-9f5df0bb710c.png)
+
+And we want parse it to this json format
+
+```json
+{
+	"reward_0": {
+		"id": "reward_0",
+		"resources": [
+			{
+				"resource_id": "gems",
+				"amount": 10
+			}
+		]
+	}
+}
+```
+
+- Create new class `RewardsParser` and implement an interface `ISpreadsheetParser`.
+
+
+```c#
+using System.Collections.Generic;
+using Yogi.GoogleSheetsConfig.Editor.Parsers;
+
+namespace Editor {
+    public class RewardsParser : ISpreadsheetParser {
+        public string Parse(int sheetId, IList<IList<object>> sheetData) {
+            return string.Empty;
+        }
+    }
+}
+```
+
+- Add 'ParserType' attribute to 'RewardParser' class and name it for example 'reward_parser'.
+
+```c#
+using System.Collections.Generic;
+using Yogi.GoogleSheetsConfig.Editor.Parsers;
+
+namespace Editor {
+    [ParserType("reward_parser")]
+    public class RewardsParser : ISpreadsheetParser {
+        public string Parse(int sheetId, IList<IList<object>> sheetData) {
+            return string.Empty;
+        }
+    }
+}
+```
+
+- Parse **sheetData** to json object
+
+```c#
+using System.Collections.Generic;
+using Framework.Editor.Google;
+using JetBrains.Annotations;
+using Newtonsoft.Json.Linq;
+
+namespace GameGarden.Florescence.Editor.Configs.Parsers {
+    [UsedImplicitly]
+    [ParserType(SpreadsheetParserType.ByIdMultiplyRows)]
+    public class SpreadsheetParserByIdMultiplyRows : ISpreadsheetParser {
+        public string Parse(int sheetId, IList<IList<object>> sheetData) {
+            JObject dicJson = new JObject();
+            var itemList = new JArray();
+
+            var item = new JObject();
+            var key = "";
+            
+            //go by rows
+            for (int i = 1; i < sheetData.Count; i++) {
+                //set key by first column
+                if (!string.IsNullOrEmpty(sheetData[i][0].ToString())) {
+                    item.Add(new JProperty(sheetData[0][0].ToString(), sheetData[i][0].ToString().Replace(',', '.')));
+                    key = sheetData[i][0].ToString();
+                }
+
+                var itemListItem = new JObject();
+                //go by columns for current row and add data to JObject
+                for (int j = 1; j < sheetData[i].Count; j++) {
+                    itemListItem.Add(new JProperty(sheetData[0][j].ToString(), sheetData[i][j].ToString().Replace(',', '.')));
+                }
+                
+                //add generated item to list items for key
+                itemList.Add(itemListItem);
+
+                //If we have reached the next key then add current to dictionary
+                if (i == sheetData.Count - 1 || !string.IsNullOrEmpty(sheetData[i + 1][0].ToString())) {
+                    item["items"] = itemList;
+                    dicJson[key] = item.DeepClone();
+                    itemList.Clear();
+                    item = new JObject();
+                }
+            }
+
+            return dicJson.ToString();
+        }
+    }
+}
+```
+
+> ❕ Read [Json.Net Documentation](https://www.newtonsoft.com/json/help/html/Introduction.htm) if you don't know how to generate json object.
 
 
 
