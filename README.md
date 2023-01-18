@@ -3,14 +3,21 @@ Google Sheets Configs for Unity game engine.
 
 ## Table of contents
 
+<details>
+	
 <!-- toc -->
 - [Installation](#installation)
 - [Setup](#setup)
 - [Creating Credentials in Google API Console](#creating-credentials-in-google-api-console)
 - [Connect Unity project to Google Sheets service](#connect-unity-project-to-google-sheets-service)
 - [Setup local configs](#setup-local-configs)
+- [Parsers](#parsers)
+	- [Default parser](#default-parser)
+	- [Create custom parser](#create-custom-parser)
 
 <!-- tocstop -->
+	
+</details>
 
 ## Installation
 Use [UPM](https://docs.unity3d.com/Manual/upm-ui.html) to install the package via the following git URL: 
@@ -119,7 +126,7 @@ After the key has been created, click **SHOW KEY** and copy key to clipboard.
       
 ## Parsers
   
- **You can write any unique parser for each table to generate json files of the desired format**
+> 💥 **You can write any unique parser for each table to generate json files of the desired format** 💥
  
 ### Default parser
 
@@ -139,6 +146,10 @@ And we want parse it to this json format
 			{
 				"resource_id": "gems",
 				"amount": 10
+			},
+			{
+				"resource_id": "gold",
+				"amount": 5
 			}
 		]
 	}
@@ -229,6 +240,17 @@ namespace GameGarden.Florescence.Editor.Configs.Parsers {
 ```
 
 > ❕ Read [Json.Net Documentation](https://www.newtonsoft.com/json/help/html/Introduction.htm) if you don't know how to generate json object.
+
+- Set this parser to your Google sheets config
+
+![image](https://user-images.githubusercontent.com/54948242/213167136-7f9e2586-9bbe-492d-9bdd-f2f3d364ec6a.png)
+
+- Click `Pull` and json config will be generated.
+
+![image](https://user-images.githubusercontent.com/54948242/213167376-8312eaa0-6a8f-42df-9a26-e39d0b294765.png)
+
+
+
 
 
 
