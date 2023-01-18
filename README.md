@@ -9,7 +9,7 @@ Google Sheets Configs for Unity game engine.
 - [Creating Credentials in Google API Console](#creating-credentials-in-google-api-console)
 - [Connect Unity project to Google Sheets service](#connect-unity-project-to-google-sheets-service)
 - [Setup local configs](#setup-local-configs)
-  * [Example](#example)
+
 <!-- tocstop -->
 
 ## Installation
@@ -24,15 +24,18 @@ https://github.com/dkoleev/GoogleSheetsConfig.git
 
 ## Setup
 ### Creating Credentials in Google API Console
+
 To set up **OAuth** or **API Key** authorization, follow these steps:
 - Open [Google API Console](https://console.developers.google.com/) and select the **Credentials** section under APIs & Services.
 
-  ![image](https://user-images.githubusercontent.com/54948242/212972962-fabc6862-6540-40f7-b1d0-3359c662ebf2.png)
+![image](https://user-images.githubusercontent.com/54948242/212972962-fabc6862-6540-40f7-b1d0-3359c662ebf2.png)
   
 - Select Google APIs and Services project for your Unity application. If you do not have project select **CREATE PROJECT** to create new project. 
 - Enable the Google Sheets API support.
 - Select the **CREATE CREDENTIALS** option and select either **API Key** or **OAuth Client ID**.
-#### OAuth
+
+### OAuth
+
 Wigh OAuth 2.0 authentication you can read and write from a public and private sheets. For more information, see [Google’s OAuth 2.0 documentation](https://developers.google.com/identity/protocols/oauth2).
 
 When generating OAuth credentials, set the application type to Desktop (because plugin uses the service only through the Unity Editor).
@@ -41,13 +44,15 @@ After the credentials have been created, download the JSON file.
 
 ![image](https://user-images.githubusercontent.com/54948242/212972140-70c60a83-b3fa-4c71-bb9d-137564c71c4b.png)
 ![image](https://user-images.githubusercontent.com/54948242/212972417-42ed6fc2-e799-47a3-b9d6-701e14e542c1.png)
+ 
+### API Key
 
-#### API Key
 API keys are a simple encrypted string that can be used only for read data from public Google Sheets.
 
 After the key has been created, click **SHOW KEY** and copy key to clipboard.
 
-### Connect Unity project to Google Sheets service
+
+## Connect Unity project to Google Sheets service
 - Create **Google Sheets service Provider**. 
   - Right Click in **Project** tab.
   - Select `Create -> Yogi -> Google Sheets Configs -> Provider`
@@ -89,7 +94,11 @@ After the key has been created, click **SHOW KEY** and copy key to clipboard.
        - `Parser` - The way how to parse data loaded from sheet. Use 'default' parser or create your own.
      - Click `Pull Configs from Google Drive` to load google sheets configs into local json files.
       
-   ### Example
+      
+ <details>
+  <summary>Example</summary>
+ 
+ 
    We have sheet config with monsters.
    
    ![image](https://user-images.githubusercontent.com/54948242/212984890-09e9c978-9f2e-4d07-a44a-43a0ed054818.png)
@@ -102,13 +111,14 @@ After the key has been created, click **SHOW KEY** and copy key to clipboard.
   
   ![image](https://user-images.githubusercontent.com/54948242/212983611-5182d516-5a29-44f6-a25b-becc6b6bde8f.png)
 
-How you can see - with the 'default' parser, the first column is used as the key in json config.
-
-**You can write any unique parser for each table to generate json files of the desired format**
-
+  How you can see - with the 'default' parser, the first column is used as the key in json config.
+ 
+ </details>
+ 
       
-  ## Parsers
-  WIP
+## Parsers
+  
+ **You can write any unique parser for each table to generate json files of the desired format**
       
 
 
