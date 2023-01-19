@@ -67,6 +67,17 @@ API keys are a simple encrypted string that can be used only for read data from 
 
 After the key has been created, click **SHOW KEY** and copy key to clipboard.
 
+### Activate Google Sheet service
+- Go to Enabled APIs & services
+
+![image](https://user-images.githubusercontent.com/54948242/213471801-af4d9efe-1421-4feb-abb6-f9b0177b8b10.png)
+
+- Find Google Sheets Api and Enable it.
+
+![image](https://user-images.githubusercontent.com/54948242/213471990-4430f73a-3d28-43dc-bace-b19ab90f772e.png)
+
+
+
 
 ## Connect Unity project to Google Sheets service
 - Create **Google Sheets service Provider**. 
