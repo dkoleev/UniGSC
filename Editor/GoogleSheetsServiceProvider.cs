@@ -316,8 +316,13 @@ namespace Yogi.UniGSC.Editor {
 
         private void SaveConfigFile(string configPath, string configData) {
             string filePath = $"{configPath}.json";
-            System.IO.File.WriteAllText(System.IO.Path.Combine(UnityEngine.Application.dataPath, filePath), configData);
-
+            var directory = Path.GetDirectoryName(filePath);
+            if (!string.IsNullOrEmpty(directory) && !AssetDatabase.IsValidFolder(directory)) {
+                var newDirPath = Path.Combine(Application.dataPath, directory);
+                Directory.CreateDirectory(newDirPath);
+            }
+            
+            File.WriteAllText(System.IO.Path.Combine(Application.dataPath, filePath), configData);
             AssetDatabase.Refresh();
         }
 
