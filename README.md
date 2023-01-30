@@ -29,13 +29,18 @@ The json file structure is generated using custom parsers, which allows you to g
 </details>
 
 ## Installation
-Use [UPM](https://docs.unity3d.com/Manual/upm-ui.html) to install the package via the following git URL: 
 
-```
-https://github.com/dkoleev/UniGHC.git
-```
+1. Install [Newtonsoft Json Unity Package](https://docs.unity3d.com/Packages/com.unity.nuget.newtonsoft-json@3.0/manual/index.html).
+	> [How to install Newtonsoft Json](https://github.com/jilleJr/Newtonsoft.Json-for-Unity/wiki/Install-official-via-UPM)
 
-![](https://gyazo.com/8c8fc97345fc64f53d62814cce571974.gif)
+
+2. Install UniGSC. Use [UPM](https://docs.unity3d.com/Manual/upm-ui.html) to install the package via the following git URL: 
+
+	```
+	https://github.com/dkoleev/UniGHC.git
+	```
+
+	![](https://gyazo.com/8c8fc97345fc64f53d62814cce571974.gif)
 
 
 ## Setup
