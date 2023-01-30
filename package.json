@@ -1,7 +1,7 @@
 {
   "name": "com.yogi.unigsc",
   "displayName": "UniGSC",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "unity": "2021.3",
   "description": "Loads data from Google sheets of any structure into Unity and parses it into a Json file of any given structure.",
   "author": {
