@@ -30,7 +30,7 @@ The json file structure is generated using custom parsers, which allows you to g
 
 ## Installation
 
-1. Install [Newtonsoft Json Unity Package](https://docs.unity3d.com/Packages/com.unity.nuget.newtonsoft-json@3.0/manual/index.html).
+1. UniGSC required [Newtonsoft Json Unity Package](https://docs.unity3d.com/Packages/com.unity.nuget.newtonsoft-json@3.0/manual/index.html).
 	> [How to install Newtonsoft Json](https://github.com/jilleJr/Newtonsoft.Json-for-Unity/wiki/Install-official-via-UPM)
 
 
