@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+
 namespace Yogi.UniGSC.Editor.Parsers {
     public static class SpreadSheetsParserUtils {
         public static object GetParseValue(object value) {

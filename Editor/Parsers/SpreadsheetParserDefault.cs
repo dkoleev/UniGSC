@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
+
 namespace Yogi.UniGSC.Editor.Parsers {
     [ParserType("default")]
     public class SpreadsheetParserDefault : ISpreadsheetParser {
