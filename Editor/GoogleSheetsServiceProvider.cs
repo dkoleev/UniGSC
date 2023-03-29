@@ -328,8 +328,12 @@ namespace Yogi.UniGSC.Editor {
 
         internal void PullAllSheets(List<GoogleSpreadSheetConfigData> configs) {
             foreach (var configData in configs) {
-                SaveSheetToJsonFile(configData);
+                PullSheet(configData);
             }
+        }
+        
+        internal void PullSheet(GoogleSpreadSheetConfigData data) {
+            SaveSheetToJsonFile(data);
         }
     }
 }

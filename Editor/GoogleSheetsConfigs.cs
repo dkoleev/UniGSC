@@ -4,24 +4,32 @@ using UnityEngine;
 
 namespace Yogi.UniGSC.Editor {
     [CreateAssetMenu(fileName = "Google Sheets Configs", menuName = "Yogi/Google Sheets Configs/Configs", order = 2)]
-    internal class GoogleSheetsConfigs : ScriptableObject {
+    public class GoogleSheetsConfigs : ScriptableObject {
         [field: SerializeField] internal GoogleSheetsServiceProvider Provider { get; private set; }
         [field: SerializeField] internal List<GoogleSpreadSheetConfigData> Configs { get; private set; }
 
-        internal void PullAllConfigs() {
+        public void PullAllConfigs() {
             Provider.PullAllSheets(Configs);
+        }
+
+        public void PullConfig(GoogleSpreadSheetConfigData data) {
+            Provider.PullSheet(data);
+        }
+
+        public void OpenSpreadsheet(GoogleSpreadSheetConfigData data) {
+            Provider.OpenSheetInBrowser(data);
         }
     }
 
     [Serializable]
-    internal class GoogleSpreadSheetConfigData {
+    public class GoogleSpreadSheetConfigData {
         [SerializeField] private string name;
         [field: SerializeField] public string SpreadSheet { get; private set; }
         [field: SerializeField] public List<GoogleSheetConfigData> Sheets { get; private set; }
     }
 
     [Serializable]
-    internal class GoogleSheetConfigData {
+    public class GoogleSheetConfigData {
         [field: SerializeField] public string ConfigName { get; private set; }
         [field: SerializeField] public int SheetId { get; private set; }
         [field: SerializeField] public string Range { get; private set; }
