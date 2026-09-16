@@ -13,7 +13,7 @@ namespace Yogi.UniGSC.Editor.Parsers {
                 return floatRes;
             }
             
-            return resValue;
+            return value.ToString();
         }
     }
 }
